@@ -1,0 +1,24 @@
+{
+    "title": "Brightcove Search",
+    "description": "A library to retrive Brightcove videos from API",
+    "majorVersion": 1,
+    "minorVersion": 0,
+    "patchVersion": 0,
+    "runnable": 0,
+    "machineName": "H5PEditor.BrightcoveSearch",
+    "author": "Waqar Muneer",
+    "preloadedJs": [
+        {
+            "path": "scripts/brightcove-search.js"
+        }
+    ],
+    "preloadedCss": [
+        {
+            "path": "styles/brightcove-search.css"
+        }
+    ],
+    "metadataSettings": {
+        "disable": 0,
+        "disableExtraTitleField": 1
+    }
+}
