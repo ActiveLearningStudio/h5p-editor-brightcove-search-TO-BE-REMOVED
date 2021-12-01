@@ -11,7 +11,6 @@ H5PEditor.widgets.brightcoveSearch = H5PEditor.BrightcoveSearch = (function($) {
         this.field = field;
         this.params = params;
         this.setValue = setValue;
-        // this.brightcoveData = {videoId: null};
     }
 
     /**
@@ -20,17 +19,15 @@ H5PEditor.widgets.brightcoveSearch = H5PEditor.BrightcoveSearch = (function($) {
      * @param {H5P.jQuery} $wrapper
      */
     C.prototype.appendTo = function ($wrapper) {
-        var self = this;
-        
+        var self = this;        
         self.$container = $('<div>', {
             'class': 'field text h5p-brightcove-search'
-        });
-        
-        // Create input field
+        });        
+        // Create input field        
         self.$videoIdInputText = $('<input>', {
             'type': 'text',
             'class': 'h5p-brightcove-search-text',
-            'value': 'vid id'
+            'placeholder': 'Enter Video Id'
         }).appendTo(self.$container);
 
         $(self.$videoIdInputText).on('keyup', function() {
@@ -152,13 +149,9 @@ H5PEditor.widgets.brightcoveSearch = H5PEditor.BrightcoveSearch = (function($) {
                             });
     
                             $(document).on("click", ".play-list-video-bc", function () {
-                                // do it
-                                // wrapper.val($(this).data("videoid"));
-                                H5P.jQuery(self.$videoIdInputText).val($(this).data("videoid"));
-                                self.setVideoId( H5P.jQuery(self.$videoIdInputText).val() );
-                                $(".modal").css("display", "none");
-                              /* wrapper.val($(this).data("videoid"));
-                              window.bcAPISearhVideoId = $(this).data("videoid"); */
+                              H5P.jQuery(self.$videoIdInputText).val($(this).data("videoid"));
+                              self.setVideoId( H5P.jQuery(self.$videoIdInputText).val() );
+                              $(".modal").css("display", "none");
                             });
                           } else {
                             console.log(data.error);
@@ -168,38 +161,9 @@ H5PEditor.widgets.brightcoveSearch = H5PEditor.BrightcoveSearch = (function($) {
                     }   
                     console.log('TOKEN:',data.access_token);
                   },
-              });
-              
+              });              
             }
-
-            
-            //alert("Comming Soon.....");
-            // 6283233497001
-            // var videoId = 6283184730001;
-            // self.setVideoId( H5P.jQuery(self.$videoIdInputText).val() );
-            //console.log('self.parent.field ===== ', self.parent.field);
         });
-
-        /*
-        // Create input field
-        self.$videoIdInputText = $('<input>', {
-            'type': 'text',
-            'class': 'h5p-brightcove-video-id'
-        }).appendTo(self.$container);
-
-        $(self.$videoIdInputText).on('keyup', function(e) {
-            console.log('vid-e ', $(e.target).val());
-            self.brightcoveData.videoId = $(e.target).val().trim();
-            self.setBrightcoveData(self.brightcoveData);
-        });
-
-        // Add description:
-        $('<span>', {
-            'class': 'h5peditor-field-description',
-            html: self.field.description
-        }).appendTo(self.$container)
-        */
-
         self.$container.appendTo($wrapper);
     };
 
