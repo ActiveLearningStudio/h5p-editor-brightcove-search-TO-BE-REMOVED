@@ -30,6 +30,11 @@ H5PEditor.widgets.brightcoveSearch = H5PEditor.BrightcoveSearch = (function($) {
             'placeholder': 'Enter Video Id'
         }).appendTo(self.$container);
 
+        // Fix video id issue in edit case
+        if(self.params){
+          H5P.jQuery(self.$videoIdInputText).val(self.params);
+        }
+
         $(self.$videoIdInputText).on('keyup', function() {
             self.setVideoId( H5P.jQuery(this).val() );
         });
@@ -166,11 +171,6 @@ H5PEditor.widgets.brightcoveSearch = H5PEditor.BrightcoveSearch = (function($) {
         });
         self.$container.appendTo($wrapper);
     };
-
-    C.prototype.setBrightcoveData = function (brightcoveData) {
-        this.params = brightcoveData;
-        this.setValue(this.field, this.params.videoId);
-    },
 
     C.prototype.setVideoId = function (videoId) {
         this.params = videoId;
