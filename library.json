@@ -10,6 +10,9 @@
     "preloadedJs": [
         {
             "path": "scripts/brightcove-search.js"
+        },
+        {
+          "path": "scripts/config.js"
         }
     ],
     "preloadedCss": [
